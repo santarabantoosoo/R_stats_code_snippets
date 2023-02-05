@@ -2,47 +2,54 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "28b88859",
+   "id": "516689fc",
    "metadata": {
     "papermill": {
-     "duration": 0.003762,
-     "end_time": "2023-01-31T00:13:52.519925",
+     "duration": 0.008156,
+     "end_time": "2023-02-05T06:46:18.839612",
      "exception": false,
-     "start_time": "2023-01-31T00:13:52.516163",
+     "start_time": "2023-02-05T06:46:18.831456",
      "status": "completed"
     },
     "tags": []
    },
    "source": [
-    "# R snippets\n"
+    "# R snippets\n",
+    "\n",
+    "> instead of researching codes that I have previous used in Rstat projects, I am gathering it here for future use. Anyone is also welcome to use code from here. Suggestions are highly appreciated. "
    ]
   },
   {
    "cell_type": "markdown",
-   "id": "9a4d4ee0",
+   "id": "83e5ab25",
    "metadata": {
     "papermill": {
-     "duration": 0.00262,
-     "end_time": "2023-01-31T00:13:52.525185",
+     "duration": 0.006613,
+     "end_time": "2023-02-05T06:46:18.853343",
      "exception": false,
-     "start_time": "2023-01-31T00:13:52.522565",
+     "start_time": "2023-02-05T06:46:18.846730",
      "status": "completed"
     },
     "tags": []
    },
    "source": [
-    "## Markdown "
+    "# Markdown "
    ]
   },
   {
    "cell_type": "markdown",
-   "id": "b0310898",
+   "id": "52f810bc",
    "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-02-05T03:48:04.676680Z",
+     "iopub.status.busy": "2023-02-05T03:48:04.674008Z",
+     "iopub.status.idle": "2023-02-05T03:48:04.810334Z"
+    },
     "papermill": {
-     "duration": 0.00243,
-     "end_time": "2023-01-31T00:13:52.529938",
+     "duration": 0.006548,
+     "end_time": "2023-02-05T06:46:18.866470",
      "exception": false,
-     "start_time": "2023-01-31T00:13:52.527508",
+     "start_time": "2023-02-05T06:46:18.859922",
      "status": "completed"
     },
     "tags": []
@@ -65,19 +72,19 @@
   },
   {
    "cell_type": "markdown",
-   "id": "81ad6635",
+   "id": "b91cc644",
    "metadata": {
     "papermill": {
-     "duration": 0.002346,
-     "end_time": "2023-01-31T00:13:52.534602",
+     "duration": 0.006539,
+     "end_time": "2023-02-05T06:46:18.879543",
      "exception": false,
-     "start_time": "2023-01-31T00:13:52.532256",
+     "start_time": "2023-02-05T06:46:18.873004",
      "status": "completed"
     },
     "tags": []
    },
    "source": [
-    "## Cleaning \n",
+    "# Cleaning \n",
     "\n",
     "var_label(data) <- list(\n",
     "  no.of.muscles.involved = \"No. of muscles involved\", \n",
@@ -87,32 +94,65 @@
   },
   {
    "cell_type": "markdown",
-   "id": "184de2cc",
+   "id": "4ee791b6",
    "metadata": {
     "papermill": {
-     "duration": 0.002619,
-     "end_time": "2023-01-31T00:13:52.539558",
+     "duration": 0.006546,
+     "end_time": "2023-02-05T06:46:18.892626",
      "exception": false,
-     "start_time": "2023-01-31T00:13:52.536939",
+     "start_time": "2023-02-05T06:46:18.886080",
      "status": "completed"
     },
     "tags": []
    },
    "source": [
-    "## gtsummary descriptive \n",
+    "# gtsummary \n",
+    "\n",
+    "> ## Descriptive \n",
     "\n",
     "tbl_summary(tbl1_sum, missing = \"no\", by = \"treatment\", type = list(age ~ 'continuous'))  %>% add_n %>% bold_labels() %>% italicize_levels() %>%  add_p() %>% bold_p()%>% gtsummary::as_flex_table() \n"
    ]
   },
   {
    "cell_type": "markdown",
-   "id": "0b3fe970",
+   "id": "15a76ff6",
    "metadata": {
     "papermill": {
-     "duration": 0.002325,
-     "end_time": "2023-01-31T00:13:52.544138",
+     "duration": 0.006545,
+     "end_time": "2023-02-05T06:46:18.905771",
      "exception": false,
-     "start_time": "2023-01-31T00:13:52.541813",
+     "start_time": "2023-02-05T06:46:18.899226",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "# flextable\n",
+    "\n",
+    "\n",
+    "> ## basic table \n",
+    "\n",
+    "\n",
+    "rmdtable <- function(df){\n",
+    " \n",
+    "  bes <- autofit(theme_vanilla(flextable(df)))\n",
+    "\n",
+    "bes <- bg(bes, bg = \"blue\", part = \"header\")\n",
+    "bes <- color(bes, color = \"white\", part = \"header\")\n",
+    "\n",
+    "return(bes) \n",
+    "}\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "219b397e",
+   "metadata": {
+    "papermill": {
+     "duration": 0.006538,
+     "end_time": "2023-02-05T06:46:18.918943",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:18.912405",
      "status": "completed"
     },
     "tags": []
@@ -128,13 +168,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "b1f2d95a",
+   "id": "63524b22",
    "metadata": {
     "papermill": {
-     "duration": 0.002348,
-     "end_time": "2023-01-31T00:13:52.548741",
+     "duration": 0.006569,
+     "end_time": "2023-02-05T06:46:18.932116",
      "exception": false,
-     "start_time": "2023-01-31T00:13:52.546393",
+     "start_time": "2023-02-05T06:46:18.925547",
      "status": "completed"
     },
     "tags": []
@@ -153,13 +193,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "0695fb42",
+   "id": "1f5512ed",
    "metadata": {
     "papermill": {
-     "duration": 0.002553,
-     "end_time": "2023-01-31T00:13:52.553598",
+     "duration": 0.006572,
+     "end_time": "2023-02-05T06:46:18.945280",
      "exception": false,
-     "start_time": "2023-01-31T00:13:52.551045",
+     "start_time": "2023-02-05T06:46:18.938708",
      "status": "completed"
     },
     "tags": []
@@ -183,13 +223,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "98ecae1d",
+   "id": "05d4f926",
    "metadata": {
     "papermill": {
-     "duration": 0.002369,
-     "end_time": "2023-01-31T00:13:52.558237",
+     "duration": 0.011593,
+     "end_time": "2023-02-05T06:46:18.963455",
      "exception": false,
-     "start_time": "2023-01-31T00:13:52.555868",
+     "start_time": "2023-02-05T06:46:18.951862",
      "status": "completed"
     },
     "tags": []
@@ -217,13 +257,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "0aa9899d",
+   "id": "09a313c7",
    "metadata": {
     "papermill": {
-     "duration": 0.002346,
-     "end_time": "2023-01-31T00:13:52.562875",
+     "duration": 0.006497,
+     "end_time": "2023-02-05T06:46:18.977004",
      "exception": false,
-     "start_time": "2023-01-31T00:13:52.560529",
+     "start_time": "2023-02-05T06:46:18.970507",
      "status": "completed"
     },
     "tags": []
@@ -238,19 +278,19 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "faa2ec00",
+   "id": "87602ffa",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-01-31T00:13:52.573251Z",
-     "iopub.status.busy": "2023-01-31T00:13:52.570088Z",
-     "iopub.status.idle": "2023-01-31T00:13:55.844233Z",
-     "shell.execute_reply": "2023-01-31T00:13:55.842354Z"
+     "iopub.execute_input": "2023-02-05T06:46:18.992975Z",
+     "iopub.status.busy": "2023-02-05T06:46:18.991548Z",
+     "iopub.status.idle": "2023-02-05T06:46:21.454079Z",
+     "shell.execute_reply": "2023-02-05T06:46:21.452857Z"
     },
     "papermill": {
-     "duration": 3.282636,
-     "end_time": "2023-01-31T00:13:55.847823",
+     "duration": 2.472835,
+     "end_time": "2023-02-05T06:46:21.456391",
      "exception": false,
-     "start_time": "2023-01-31T00:13:52.565187",
+     "start_time": "2023-02-05T06:46:18.983556",
      "status": "completed"
     },
     "tags": []
@@ -370,6 +410,1229 @@
     "    binwidth = 0.25\n",
     "  )"
    ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f393a7eb",
+   "metadata": {
+    "papermill": {
+     "duration": 0.008201,
+     "end_time": "2023-02-05T06:46:21.473134",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:21.464933",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "> ### Line graph for each level of binary variable "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "34842293",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-02-05T06:46:21.520535Z",
+     "iopub.status.busy": "2023-02-05T06:46:21.492587Z",
+     "iopub.status.idle": "2023-02-05T06:46:21.529782Z",
+     "shell.execute_reply": "2023-02-05T06:46:21.528391Z"
+    },
+    "papermill": {
+     "duration": 0.05041,
+     "end_time": "2023-02-05T06:46:21.531818",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:21.481408",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# ggplot(mapping = aes(x = Var1, y = Freq, group =1 )) +\n",
+    "#   geom_line(data = subset(foo, Var2 == 1), aes(color = \"red\")) +\n",
+    "#   geom_line(data = subset(foo, Var2 == 0), aes(color = \"blue\"))+\n",
+    "#   theme_minimal()+\n",
+    "#   labs(x = \"Days to reach optimum level\", y = \"GVHD frequency\")+\n",
+    "#   scale_color_discrete(name = \"GVHD\", labels = c(\"No\", \"Yes\"))+\n",
+    "#   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "64187dcd",
+   "metadata": {
+    "papermill": {
+     "duration": 0.008248,
+     "end_time": "2023-02-05T06:46:21.548381",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:21.540133",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "> ## longitudinal data visualization "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "70c3135a",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-02-05T06:46:21.567779Z",
+     "iopub.status.busy": "2023-02-05T06:46:21.566299Z",
+     "iopub.status.idle": "2023-02-05T06:46:21.576722Z",
+     "shell.execute_reply": "2023-02-05T06:46:21.575365Z"
+    },
+    "papermill": {
+     "duration": 0.022024,
+     "end_time": "2023-02-05T06:46:21.578510",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:21.556486",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# https://stats.idre.ucla.edu/r/faq/how-can-i-visualize-longitudinal-data-in-ggplot2/\n",
+    "# ggplot(data = subset(lda_data, day_post_BMT <= 7 & day_post_BMT >= 1 & level < 550), aes(x = day_post_BMT, y = level, group = MRN)) +\n",
+    "# geom_line() + stat_smooth(aes(group = 1)) + stat_summary(aes(group = 1),\n",
+    "#     geom = \"point\", fun.y = median, shape = 22, size = 2, fill = 'blue') + facet_grid(. ~ rec_gender)+\n",
+    "#   geom_ribbon(aes(ymin=200, ymax=250), alpha=0.0025, fill = \"green\") \n",
+    "# The blue points represent the median level at each time point. The blue line connecting the points is a smooth line connecting the median points. The green area represents the desired plasma level. \n",
+    "\n",
+    "#   Making better spaghetti (plots): Exploring the individuals in longitudinal data with the brolgar pac - RStudio\n",
+    "# https://www.rstudio.com/resources/rstudioconf-2020/making-better-spaghetti-plots-exploring-the-individuals-in-longitudinal-data-with-the-brolgar-pac/\n",
+    "\n",
+    "# Visualise longitudinal data\n",
+    "# https://cran.r-project.org/web/packages/lcsm/vignettes/v0-longitudinal-plots.html\n",
+    "# \n",
+    "\n",
+    "# Browse Over Longitudinal Data Graphically and Analytically in R • brolgar\n",
+    "# https://brolgar.njtierney.com/\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f65932a1",
+   "metadata": {
+    "papermill": {
+     "duration": 0.008893,
+     "end_time": "2023-02-05T06:46:21.596588",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:21.587695",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "# ROC "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "cefc7236",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-02-05T06:46:21.617265Z",
+     "iopub.status.busy": "2023-02-05T06:46:21.615983Z",
+     "iopub.status.idle": "2023-02-05T06:46:21.626009Z",
+     "shell.execute_reply": "2023-02-05T06:46:21.624655Z"
+    },
+    "papermill": {
+     "duration": 0.022421,
+     "end_time": "2023-02-05T06:46:21.627758",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:21.605337",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# library(pROC)\n",
+    "# \n",
+    "# rocobj <- roc(data$GVHD, as.numeric(data$D....18))\n",
+    "# \n",
+    "# g <- ggroc(rocobj)\n",
+    "# \n",
+    "# g + theme_minimal() + ggtitle(\"My ROC curve\") + \n",
+    "#     geom_segment(aes(x = 1, xend = 0, y = 0, yend = 1), color=\"grey\", linetype=\"dashed\")\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "fc280fe8",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-02-05T06:46:21.646828Z",
+     "iopub.status.busy": "2023-02-05T06:46:21.645730Z",
+     "iopub.status.idle": "2023-02-05T06:46:21.654281Z",
+     "shell.execute_reply": "2023-02-05T06:46:21.653152Z"
+    },
+    "papermill": {
+     "duration": 0.019663,
+     "end_time": "2023-02-05T06:46:21.655936",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:21.636273",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# another option for ROC\n",
+    "\n",
+    "# pred <- with(data,prediction(data$Age.at.time.of.SCT.,data$dose_bin, label.ordering = c(1, 0)))\n",
+    "# perf <- performance(pred,\"tpr\", \"fpr\")\n",
+    "# auc <-performance(pred, measure = \"auc\")@y.values[[1]]\n",
+    "# rd <- data.frame(x=perf@x.values[[1]],y=perf@y.values[[1]])\n",
+    "# p <- ggplot(rd,aes(x=x,y=y)) + geom_path(size=1)\n",
+    "# p <- p + geom_segment(aes(x=0,y=0,xend=1,yend=1),colour=\"black\",linetype= 2)\n",
+    "# p <- p + geom_text(aes(x=1, y= 0, hjust=1, vjust=0, label=paste(sep = \"\", \"AUC = \",round(auc,3) )),colour=\"black\",size=4)\n",
+    "# p <- p + scale_x_continuous(name= \"False positive rate\")\n",
+    "# p <- p + scale_y_continuous(name= \"True positive rate\")\n",
+    "# p\n",
+    "# \n",
+    "# opt.cut = function(perf, pred){\n",
+    "#   cut.ind = mapply(FUN=function(x, y, p){\n",
+    "#     d = (x - 0)^2 + (y-1)^2\n",
+    "#     ind = which(d == min(d))\n",
+    "#     c(sensitivity = y[[ind]], specificity = 1-x[[ind]],\n",
+    "#       cutoff = p[[ind]])\n",
+    "#   }, perf@x.values, perf@y.values, pred@cutoffs)\n",
+    "# }\n",
+    "# \n",
+    "# print(opt.cut(perf, pred))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "8b4e0f63",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-02-05T06:46:21.676657Z",
+     "iopub.status.busy": "2023-02-05T06:46:21.675344Z",
+     "iopub.status.idle": "2023-02-05T06:46:21.685185Z",
+     "shell.execute_reply": "2023-02-05T06:46:21.683980Z"
+    },
+    "papermill": {
+     "duration": 0.022256,
+     "end_time": "2023-02-05T06:46:21.687360",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:21.665104",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# here I was trying to detect multiple cut points\n",
+    " \n",
+    "# opt_cut <- cutpointr(data, Age.at.time.of.SCT., dose_bin, metric = sum_sens_spec, \n",
+    "#                      tol_metric = 0.05)\n",
+    "# \n",
+    "# opt_cut$optimal_cutpoint\n",
+    "# opt_cut %>% \n",
+    "#   select(optimal_cutpoint, sum_sens_spec) %>% \n",
+    "#   unnest\n",
+    "# \n",
+    "# plot(opt_cut)\n",
+    "# \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "0530c047",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-02-05T06:46:21.707138Z",
+     "iopub.status.busy": "2023-02-05T06:46:21.705993Z",
+     "iopub.status.idle": "2023-02-05T06:46:21.716011Z",
+     "shell.execute_reply": "2023-02-05T06:46:21.714821Z"
+    },
+    "papermill": {
+     "duration": 0.02206,
+     "end_time": "2023-02-05T06:46:21.718281",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:21.696221",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# here I tried to figure out the optimal number of cut points. \n",
+    "\n",
+    "# optimal.cutpoint<-optimal.cutpoints(X = \"Age.at.time.of.SCT.\", status = \"dose_bin\", tag.healthy = 1, methods = \"CB\", data = data, pop.prev = NULL, ci.fit = TRUE, conf.level = 0.95, trace = FALSE)   # http://smart-statistics.com/handling-roc-curves/\n",
+    "\n",
+    "# summary(optimal.cutpoint)\n",
+    "# \n",
+    "# plot(optimal.cutpoint)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "96aa6b88",
+   "metadata": {
+    "papermill": {
+     "duration": 0.008493,
+     "end_time": "2023-02-05T06:46:21.735446",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:21.726953",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "# Longitudinal data "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f3fe9114",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-02-05T05:23:25.657285Z",
+     "iopub.status.busy": "2023-02-05T05:23:25.655337Z",
+     "iopub.status.idle": "2023-02-05T05:23:25.674146Z"
+    },
+    "papermill": {
+     "duration": 0.009298,
+     "end_time": "2023-02-05T06:46:21.753614",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:21.744316",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "> ## GEE \n",
+    "\n",
+    " mf <- formula(level ~ Recipient.s.Gender. + voriconazole + age_bin + wt..D.2)\n",
+    "\n",
+    " geeInd <- geeglm(mf, id= Recipient.s.MRN., data=long_data, family=gaussian, corstr=\"ind\")\n",
+    "\n",
+    " geeInd_sum <- summary(geeInd)\n",
+    " \n",
+    " anova(geeInd)\n",
+    "\n",
+    "gee_df <- tidy(geeInd, conf.int = TRUE)\n",
+    "\n",
+    "gee_df <- gee_df[2:nrow(gee_df), c(1,2,5:7)]\n",
+    "\n",
+    "gee_df$term <- c(\"Gender - Male\", \"voriconazole prescribed\", \"Age (>9)\", \"Weight\")\n",
+    "\n",
+    "gee_df <- gee_df %>% \n",
+    "  mutate(across(where(is.numeric), round, 2))\n",
+    "\n",
+    "rmdtbl(gee_df)\n",
+    "\n",
+    "pop_mean <- tidy(emmeans(geeInd, ~ voriconazole + age_bin))\n",
+    "\n",
+    "pop_mean <- pop_mean[, c(1,2,3)]\n",
+    "\n",
+    "names(pop_mean) <- c(\"voriconazole\", \"Age\",\"Average plasma level\")\n",
+    "\n",
+    "rmdtbl(pop_mean)\n",
+    "\n",
+    "plot(emmeans(geeInd, ~voriconazole + age_bin), horizontal=F, ylab=\"Estimated mean\", las = 1)  \n",
+    "\n",
+    "That's population average according to predictors\n",
+    "\n",
+    "\n",
+    "\n",
+    "Broken Stick Model for Irregular Longitudinal Data\n",
+    "https://cran.r-project.org/web/packages/brokenstick/vignettes/brokenstick-article.html \n",
+    " "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a185f450",
+   "metadata": {
+    "papermill": {
+     "duration": 0.008696,
+     "end_time": "2023-02-05T06:46:21.770902",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:21.762206",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "# Models\n",
+    "\n",
+    "> ## Multonomial logistic regression \n",
+    "\n",
+    "We chose the multinom function because it does not require the data to be reshaped (as the mlogit package does)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "f6a3dd31",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-02-05T06:46:21.790496Z",
+     "iopub.status.busy": "2023-02-05T06:46:21.789365Z",
+     "iopub.status.idle": "2023-02-05T06:46:21.802564Z",
+     "shell.execute_reply": "2023-02-05T06:46:21.801257Z"
+    },
+    "papermill": {
+     "duration": 0.024874,
+     "end_time": "2023-02-05T06:46:21.804252",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:21.779378",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# multinom(op_dose ~ voriconazole + rec_gender + age_bin +srcr.D.2 + wt..D.2, data = data) %>%\n",
+    "#   tbl_regression(exponentiate = T) %>%\n",
+    "#   modify_header(estimate ~ \"**OR**\")\n",
+    "\n",
+    "# Model diagnostics\n",
+    "\n",
+    "#log_model <- multinom(op_dose ~ voriconazole + Recipient.s.Gender. + age_code, data = data)\n",
+    "\n",
+    "#log_model2 <- multinom(op_dose ~ voriconazole + Recipient.s.Gender. , data = data)\n",
+    "\n",
+    "#log_model3 <- multinom(op_dose ~ voriconazole  , data = data)\n",
+    "\n",
+    "#log_model4 <- multinom(op_dose ~ 1  , data = data)\n",
+    "\n",
+    "\n",
+    "# kable(glance(log_model4), digits = 3)\n",
+    "# \n",
+    "# kable(glance(log_model3), digits = 3)\n",
+    "# \n",
+    "# kable(glance(log_model2), digits = 3)\n",
+    "# \n",
+    "# kable(glance(log_model), digits = 3)\n",
+    "\n",
+    "\n",
+    "#  https://data.princeton.edu/wws509/r/c6s2 \n",
+    "\n",
+    "# I was trying to figure out how to test for the model diagnostics, but the model in this link, had predictor variables that failed to fit, so I got confused \n",
+    "# remember to go back to the previous page in the data frame to get the data they are working with\n",
+    "\n",
+    "# x2 <- deviance(log_model2) - deviance(log_model)\n",
+    "\n",
+    "#pchisq(x2, 10, lower.tail=FALSE)\n",
+    "\n",
+    "# Deviance and AIC improve greatly with addition of each variable. \n",
+    "# The sequence of addition is : null model, voriconazole, gender then age\n",
+    "\n",
+    "# Testing for IIA with the Hausman-McFadden Test\n",
+    "\n",
+    "#library(mlogit)\n",
+    "\n",
+    "# https://cran.r-project.org/web/packages/mlogit/vignettes/mlogit.pdf \n",
+    "\n",
+    "# preparing the data ( changing from wide to long)\n",
+    "\n",
+    "# Fish <- mlogit.data(Fishing, shape=\"wide\", varying=2:9, choice=\"mode\")\n",
+    "# we don't have varying here since simply no variables depend on the op_dose \n",
+    "\n",
+    "#dta <- mlogit.data(data, shape = \"wide\", choice = \"op_dose\")\n",
+    "\n",
+    "#head(index(dta)) # this reveals a unique ID and the choice \n",
+    "\n",
+    "# mod.1 <-mlogit(op_dose ~ 1|  voriconazole + Recipient.s.Gender. + age_code , reflevel = \"less than or equal 1.5\",   data=dta)  \n",
+    "# #summary(mod.1)\n",
+    "#  \n",
+    "# mod.alt1 <- mlogit(op_dose ~ 1|  voriconazole + Recipient.s.Gender. + age_code , reflevel = \"less than or equal 1.5\",   data=dta, alt.subset = c(\"less than or equal 1.5\",\"from 1.51 to 2\"))\n",
+    "# \n",
+    "# mod.alt2 <- mlogit(op_dose ~ 1|  voriconazole + Recipient.s.Gender. + age_code , reflevel = \"less than or equal 1.5\",   data=dta, alt.subset = c(\"less than or equal 1.5\",\"more than 2\"))\n",
+    "# \n",
+    "# mod.alt3 <- mlogit(op_dose ~ 1|  voriconazole + Recipient.s.Gender. + age_code , reflevel = \"less than or equal 1.5\",   data=dta, alt.subset = c(\"from 1.51 to 2\",\"more than 2\"))\n",
+    "\n",
+    "#hmftest(mod.1, mod.alt1)\n",
+    "#hmftest(mod.1, mod.alt2)\n",
+    "#hmftest(mod.1, mod.alt3)\n",
+    "\n",
+    "# Multinomial logit models are valid under the Independence of Irrelevant Alternatives (IIA)\n",
+    "# assumption that states that characteristics of one particular choice alternative do not impact\n",
+    "# the relative probabilities of choosing other alternatives. For example, if IIA is valid, how I\n",
+    "# choose between watching a movie or attending a football game is independent of whoever\n",
+    "# is giving a concert that day. Violation of the IIA assumption complicates the choice model.\n",
+    "# Therefore, much is gained when the IIA assumption is validated.\n",
+    "# \n",
+    "# \n",
+    "# https://stats.stackexchange.com/questions/380656/checking-iia-assumption-mlogit-in-r-iris-data      in the comments \n",
+    "# \n",
+    "# In the example of the HMF-test on the help page \"hmftest {mlogit}\" the variable avinc is dropped because it is not varying across alternatives. None of our variables are varying over alternatives so I fear you cannot use the test. In the Econometrica paper by Hausmann and McFadden where they formulate the test they also assume constant coefficients across alternatives (which assumes that covariates are varying across alternatives)\n",
+    "\n",
+    "#assumption failed. However, this may not be a big deal. Simply because none of our variables are varying over alternatives. \n",
+    "\n",
+    "# Is it okay just to show a graph of the log-odds in the multinomial versus the logistic regressions? The log-odds do appear to change particularly for the versicolor.\n",
+    "# \n",
+    "# par(mfrow=c(1,2))\n",
+    "# \n",
+    "# mod_redu2<-multinom(op_dose ~ voriconazole + Recipient.s.Gender. + age_code, data = data)\n",
+    "# lo_1.5 <-log(mod_redu2$fitted.values[,2]/(mod_redu2$fitted.values[,1]))\n",
+    "# lo_high<-log(mod_redu2$fitted.values[,3]/(mod_redu2$fitted.values[,1]))\n",
+    "# \n",
+    "# dataless<-data[which(data$op_dose==\"less than or equal 1.5\"|data$op_dose==\"from 1.51 to 2\"),]\n",
+    "# mod<-glm(op_dose ~ voriconazole + Recipient.s.Gender. + age_code,family=binomial(link=logit),data=dataless)\n",
+    "# plot(lo_1.5[-seq(91:119)],predict(mod))\n",
+    "# abline(a=0,b=1)\n",
+    "# \n",
+    "# datahigh<-data[which(data$op_dose==\"less than or equal 1.5\"|data$op_dose==\"more than 2\"),]\n",
+    "# mod<-glm(op_dose ~ voriconazole + Recipient.s.Gender. + age_code, family=binomial(link=logit),data = datahigh)\n",
+    "# plot(lo_high,predict(mod))\n",
+    "# abline(a=0,b=1)\n",
+    "\n",
+    "# I am confused \n",
+    "\n",
+    "\n",
+    "# http://www.talkstats.com/threads/multinomial-logistic-regression-testing-assumptions.65580/\n",
+    "\n",
+    "# For the MLR estimates to be unbiased (well, to some extent, of course :)), two assumptions must be in place -- (a) lack of multicollinearity, and (b) independence of irrelevant alternatives (IIA) (Starkweather, J., & Moske, A. K. (2011). Multinomial logistic regression). \n",
+    "\n",
+    "#I don't have continuous predictors, so I think multi-colinearity is not a problem\n",
+    "\n",
+    "\n",
+    "# Multinomial logistic regression prediction table \n",
+    "# \n",
+    "# This can be added to the appendix to show that the middle dose range was not recommended in any of the scenarios. \n",
+    "# \n",
+    "# Table shows the predicted probabilities of reaching the desired plasma level under each dose with respect to age, gender and antifungal prescribed. The probability is presented as a percentage for ease of interpretation. \n",
+    "\n",
+    "# data$Recipient.s.Gender. <- dplyr::recode(data$Recipient.s.Gender., \"Female\" = \"0\", \"Male\" = \"1\")\n",
+    "# \n",
+    "# data$Recipient.s.Gender. <- as.factor(as.numeric((data$Recipient.s.Gender.)))\n",
+    "\n",
+    "\n",
+    "# newdat <- data.frame(\n",
+    "#   Recipient.s.Gender. = as.factor(rep(levels(data$Recipient.s.Gender.),  each =  4)),\n",
+    "#   voriconazole = as.factor(rep(levels(as.factor(data$voriconazole)),   4)),\n",
+    "#   age_bin = as.factor(rep(levels(as.factor(data$age_bin))\n",
+    "#                                   , each =  4)))\n",
+    "\n",
+    "# newdat <- expand.grid(rec_gender=c(\"Female\",\"Male\"), \n",
+    "#             voriconazole =c(\"Voriconazole\",\"No voriconazole\"), \n",
+    "#             age_bin=c(\"<= 9\",\">9\"))\n",
+    "\n",
+    "\n",
+    "# test_4_pred <- multinom(op_dose ~ voriconazole + rec_gender + age_bin , data = data)\n",
+    "# \n",
+    "# pred_table <- cbind(newdat, predict(test_4_pred, newdat, type = \"probs\"))\n",
+    "# \n",
+    "# names(pred_table) <- c(\"Gender\", \"voriconazole\", \"Age\", \"prob_Less_equal_1.5\", \"prob1.5_to_2.5\", \"prob_greater_equal_2.5\")\n",
+    "# \n",
+    "# pred_table$Gender <- fct_collapse(pred_table$Gender, \n",
+    "#                                   \"Female\" = \"0\", \n",
+    "#                                   \"Male\" = \"1\")\n",
+    "\n",
+    "# pred_table$recommended_dose <- ifelse(pred_table$probability_to_reach_level_at_dose_more_than_1.5 > 0.5, \">1.5\", \"<=1.5\")\n",
+    "\n",
+    "# I used to have the code below when there was three categories for optimum dose \n",
+    "\n",
+    "# cole <- pred_table %>%\n",
+    "#   dplyr::select(prob_Less_equal_1.5 : prob_greater_equal_2.5)\n",
+    "# \n",
+    "# pred_table$recommended_dose <- colnames(cole)[max.col(cole,ties.method=\"first\")]\n",
+    "# \n",
+    "# pred_table <- pred_table %>%\n",
+    "#   rowwise() %>%\n",
+    "#   mutate(expected_percentage_of_reaching_op_dose = max(prob_Less_equal_1.5, prob1.5_to_2.5, prob_greater_equal_2.5))\n",
+    "# \n",
+    "# library(scales)\n",
+    "# \n",
+    "# pred_table <- pred_table %>%\n",
+    "#   mutate(prob_Less_equal_1.5 = percent(prob_Less_equal_1.5),\n",
+    "#          prob1.5_to_2.5 = percent(prob1.5_to_2.5),\n",
+    "#          prob_greater_equal_2.5 = percent(prob_greater_equal_2.5),\n",
+    "#        expected_percentage_of_reaching_op_dose = percent(expected_percentage_of_reaching_op_dose))\n",
+    "# \n",
+    "# names(pred_table) <- c(\"Gender\",\t\"voriconazole\",\t\"Age\",\t\"<=1.5\",\t\"1.5-2.5\", \t\">=2.5\",\t\"recommended_dose\", \t\"Accuracy (%)\")\n",
+    "# \n",
+    "# rmdtbl(pred_table)\n",
+    "\n",
+    "# library(lazyeval)\n",
+    "# nm1 <- names(iris)[1:4]\n",
+    "# iris %>%\n",
+    "#   dplyr::select(Sepal.Length : Petal.Width) %>% \n",
+    "#   mutate_(mak= interp(~pmin(v1), v1= as.name(nm1)))\n",
+    "# \n",
+    "# \n",
+    "# \n",
+    "# \n",
+    "# DF <- data.frame(V1=c(2,8,1),V2=c(7,3,5),V3=c(9,6,4))\n",
+    "# \n",
+    "# colnames(DF)[apply(DF,1,which.max)]\n",
+    "# \n",
+    "\n",
+    "# Table predicted probabilities of reaching optimum plasma level of ciclosporin\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4c49f0b6",
+   "metadata": {
+    "papermill": {
+     "duration": 0.008287,
+     "end_time": "2023-02-05T06:46:21.821122",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:21.812835",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "> ## Binary logistic regression "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "86a6693a",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-02-05T06:46:21.840432Z",
+     "iopub.status.busy": "2023-02-05T06:46:21.839246Z",
+     "iopub.status.idle": "2023-02-05T06:46:21.847873Z",
+     "shell.execute_reply": "2023-02-05T06:46:21.846682Z"
+    },
+    "papermill": {
+     "duration": 0.020045,
+     "end_time": "2023-02-05T06:46:21.849446",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:21.829401",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# mod_bin_log <- glm(dose_2_lvl ~ voriconazole + rec_gender + age_bin + phenytoin + wt..D.2, data, family = binomial)\n",
+    "\n",
+    "# tbl_regression(mod_bin_log, exponentiate = TRUE)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d7bb9d01",
+   "metadata": {
+    "papermill": {
+     "duration": 0.008223,
+     "end_time": "2023-02-05T06:46:21.865813",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:21.857590",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "Let's see the predicted probability "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "fb88937b",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-02-05T06:46:21.884948Z",
+     "iopub.status.busy": "2023-02-05T06:46:21.883686Z",
+     "iopub.status.idle": "2023-02-05T06:46:21.897580Z",
+     "shell.execute_reply": "2023-02-05T06:46:21.896362Z"
+    },
+    "papermill": {
+     "duration": 0.02567,
+     "end_time": "2023-02-05T06:46:21.899644",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:21.873974",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# newdat_binary <- expand.grid(rec_gender=c(\"Female\",\"Male\"), \n",
+    "#             voriconazole =c(\"Voriconazole\",\"No voriconazole\"), \n",
+    "#             age_bin=c(\"<= 9\",\">9\"))\n",
+    "\n",
+    "# mod_bin_log_imited <- glm(dose_2_lvl ~ voriconazole + rec_gender + age_bin  , data, family = binomial)\n",
+    "\n",
+    "\n",
+    "# pred_table_binary <- cbind(newdat_binary, predict(mod_bin_log_imited, newdat_binary, type = \"response\"))\n",
+    "\n",
+    "# names(pred_table_binary) <- c(\"Gender\", \"voriconazole\", \"Age\", \"prob_needs_higher_dose\")\n",
+    "\n",
+    "# pred_table_binary <- pred_table_binary %>% \n",
+    "#   mutate(recommended_dose = ifelse(prob_needs_higher_dose > 0.5, \"higher than 1.5\", \"1.5\" ), \n",
+    "#          probabity_reaching_level_at_selected_dose =\n",
+    "#            ifelse(prob_needs_higher_dose > 0.5, scales::percent(prob_needs_higher_dose), scales::percent(1 - prob_needs_higher_dose))) %>% \n",
+    "#   dplyr::select(-prob_needs_higher_dose)\n",
+    "\n",
+    "# rmdtbl(pred_table_binary)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "be032d66",
+   "metadata": {
+    "papermill": {
+     "duration": 0.008488,
+     "end_time": "2023-02-05T06:46:21.917145",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:21.908657",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "> ## Ordinal logistic regression "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "df949de4",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-02-05T06:46:21.936364Z",
+     "iopub.status.busy": "2023-02-05T06:46:21.935237Z",
+     "iopub.status.idle": "2023-02-05T06:46:21.945566Z",
+     "shell.execute_reply": "2023-02-05T06:46:21.944418Z"
+    },
+    "papermill": {
+     "duration": 0.022134,
+     "end_time": "2023-02-05T06:46:21.947650",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:21.925516",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# Multinomial and Ordinal Logistic Regression In R\n",
+    "# https://www.analyticsvidhya.com/blog/2016/02/multinomial-ordinal-logistic-regression/\n",
+    "\n",
+    "# require(foreign)\n",
+    "# require(ggplot2)\n",
+    "# require(MASS)\n",
+    "# require(Hmisc)\n",
+    "# require(reshape2)\n",
+    "# \n",
+    "# m_ord_log <- polr(op_dose ~ voriconazole + rec_gender + age_bin  + wt..D.2, data = data, Hess=TRUE)\n",
+    "# \n",
+    "# summary(m_ord_log)\n",
+    "# # Hess=TRUE to let the model output show the observed information matrix from optimization which is used to get standard errors.\n",
+    "# \n",
+    "# tidy_polr <- tidy(m_ord_log, exponentiate = T, p.values = T, conf.int = T, digits = 3)\n",
+    "# \n",
+    "# tidy_olr <- tidy_polr %>% \n",
+    "#   dplyr::select(term, 'OR' = estimate, 'lower_conf' = conf.low, 'upper_conf' = conf.high, \"P_value\" = p.value) %>%\n",
+    "#   mutate_if(is.numeric, round, digits = 3) %>% \n",
+    "#   filter(row_number() <= n()-2)\n",
+    "# \n",
+    "# tidy_olr$term <- c(\"Vori vs No Vori\", \"Male vs Female\", \"Age > 9 vs Age < 9\", \"Weight\")\n",
+    "# \n",
+    "# rmdtbl(tidy_olr)\n",
+    "# \n",
+    "# augment(m_ord_log)\n",
+    "# \n",
+    "# data$op_dose_coded <- fct_collapse(data$op_dose, \n",
+    "#                                    '1' = '<= 1.5', \n",
+    "#                                    '2' = '1.5-2.5',\n",
+    "#                                    '3' = '>= 2.5') %>% \n",
+    "#   as.numeric()\n",
+    "# \n",
+    "# sf <- function(y) {\n",
+    "#   c('Y>=1' = qlogis(mean(y >= 1)),\n",
+    "#     'Y>=2' = qlogis(mean(y >= 2)),\n",
+    "#     'Y>=3' = qlogis(mean(y >= 3)))\n",
+    "# }\n",
+    "# \n",
+    "# (s <- with(data, summary(as.numeric(op_dose_coded) ~ voriconazole + rec_gender + age_bin, fun=sf)))\n",
+    "# # I didn't add weight to the test, as it is a continuous variable. It gives infinity in the distance\n",
+    "# \n",
+    "# s[, 4] <- s[, 4] - s[, 3]\n",
+    "# s[, 3] <- s[, 3] - s[, 3]\n",
+    "# s\n",
+    "# \n",
+    "# plot(s, which=1:3, pch=1:3, xlab='logit', main=' ', xlim=range(s[,3:4]))\n",
+    "# \n",
+    "# The model seems ok for all predictors. However, a large deviation occurs for age. \n",
+    "# \n",
+    "# glance(m_ord_log)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ca7fede4",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-02-05T05:23:25.657285Z",
+     "iopub.status.busy": "2023-02-05T05:23:25.655337Z",
+     "iopub.status.idle": "2023-02-05T05:23:25.674146Z"
+    },
+    "papermill": {
+     "duration": 0.008452,
+     "end_time": "2023-02-05T06:46:21.964641",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:21.956189",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bf9788df",
+   "metadata": {
+    "papermill": {
+     "duration": 0.008486,
+     "end_time": "2023-02-05T06:46:21.981562",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:21.973076",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "# Survival\n",
+    "\n",
+    "> ## kaplan meier curve "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d20425bf",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-02-05T03:59:32.210480Z",
+     "iopub.status.busy": "2023-02-05T03:59:32.208959Z",
+     "iopub.status.idle": "2023-02-05T03:59:32.248434Z"
+    },
+    "papermill": {
+     "duration": 0.008308,
+     "end_time": "2023-02-05T06:46:21.998259",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:21.989951",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "\n",
+    "km <- function(fu, st, gp, data){\n",
+    "  \n",
+    "  fit <- do.call(survfit, list(formula = Surv(fu, st) ~ gp ,data = data))\n",
+    " \n",
+    "plot = ggsurvplot(\n",
+    "  fit, data = data,\n",
+    "   data used to fit survival curves.\n",
+    "  #surv_plot(OS_data, OS_data$OS_FU, OS_data$OS_status)\n",
+    "  risk.table = TRUE,       # show risk table.\n",
+    "  palette = \"jco\",\n",
+    "  pval = TRUE,             # show p-value of log-rank test.\n",
+    "  conf.int = FALSE,         # show confidence intervals for\n",
+    "<!--   # point estimaes of survival curves. -->\n",
+    "  xlim = c(0,80),        # present narrower X axis, but not affect\n",
+    "<!--   # survival estimates. -->\n",
+    "  break.time.by = 5,     # break X axis in time intervals by 500.\n",
+    "  ggtheme = theme_minimal(), # customize plot and risk table with a theme.\n",
+    "  risk.table.y.text.col = T, # colour risk table text annotations.\n",
+    "  risk.table.y.text = FALSE # show bars instead of names in text annotations\n",
+    "<!--   # in legend of risk table -->\n",
+    ")\n",
+    "return(plot)\n",
+    "}\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "83e6959a",
+   "metadata": {
+    "papermill": {
+     "duration": 0.008558,
+     "end_time": "2023-02-05T06:46:22.015671",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:22.007113",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "> ## multivariate cox regression "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c5002b75",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-02-05T04:03:10.380868Z",
+     "iopub.status.busy": "2023-02-05T04:03:10.379198Z",
+     "iopub.status.idle": "2023-02-05T04:03:10.395603Z"
+    },
+    "papermill": {
+     "duration": 0.008431,
+     "end_time": "2023-02-05T06:46:22.032536",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:22.024105",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "\n",
+    "os_cox_mult <- coxph(Surv(os_time, os_st) ~ age_category + B.symptoms + early_advanced_stage + Result.of.Second.PET.CT, data) \n",
+    "\n",
+    "\n",
+    "tbl_regression(os_cox_mult, exponentiate = TRUE,  pvalue_fun = function(x) style_pvalue(x, digits = 2)) %>% bold_labels() %>% italicize_levels() %>% bold_p() %>% add_n() %>% gtsummary::as_flex_table() \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a75caf3a",
+   "metadata": {
+    "papermill": {
+     "duration": 0.00835,
+     "end_time": "2023-02-05T06:46:22.049279",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:22.040929",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "> ## mutlivariate cox using more than 1 time dependent covariate"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e55d6f3b",
+   "metadata": {
+    "papermill": {
+     "duration": 0.008344,
+     "end_time": "2023-02-05T06:46:22.066020",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:22.057676",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "\n",
+    "data %<>% mutate(tpet=if_else(!is.na(data$time_to_sec_pet),time_to_sec_pet ,max(os_time) +1 ))\n",
+    "\n",
+    "data %<>% mutate(trad=if_else(!is.na(data$rad_time) ,\n",
+    "                              rad_time, max(os_time) + 1 ))\n",
+    "\n",
+    "\n",
+    "t_pet_rad <- coxph(Surv(os_time,os_st) ~ B.symptoms + early_advanced_stage + tt(tpet) + tt(trad), data=data,\n",
+    "             tt=function(x,t,...) (t>=x))\n",
+    "\n",
+    "var_label(data) <- list(\n",
+    "  trad = \"Radiotherapy(tdc)\",\n",
+    "  tpet = \"PET CT (tdc)\"\n",
+    ")\n",
+    "\n",
+    "t_pet_rad %>% \n",
+    "gtsummary::tbl_regression(exp = TRUE)  %>% bold_labels() %>% italicize_levels()  %>%\n",
+    "  modify_table_body(dplyr::select, -p.value) %>% \n",
+    "  gtsummary::as_flex_table() \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d70a8819",
+   "metadata": {
+    "papermill": {
+     "duration": 0.00834,
+     "end_time": "2023-02-05T06:46:22.082794",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:22.074454",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "> ## Model diagnostics \n",
+    "\n",
+    "Firstly, I will the proportional hazard assumption using the schoenfeld test. I will use both the graphical and numerical tests. \n",
+    "\n",
+    "test.ph <- cox.zph(os_cox_mult)\n",
+    "test.ph\n",
+    "\n",
+    "significant p values mean proportional hazard assumption violation \n",
+    "\n",
+    "It’s possible to do a graphical diagnostic using the function ggcoxzph() [in the survminer package], which produces, for each covariate, graphs of the scaled Schoenfeld residuals against the transformed time.\n",
+    "\n",
+    "ggcoxzph(test.ph)\n",
+    "\n",
+    "If we see a systematic departure from the horizontal line, then we can assume proportional hazards.  \n",
+    "\n",
+    "\n",
+    "### testing influential points \n",
+    "\n",
+    "\n",
+    "ggcoxdiagnostics(t_pet_rad, type = \"dfbeta\",\n",
+    "                 linear.predictions = FALSE, ggtheme = theme_bw())\n",
+    "\n",
+    "Adding the type as dfbeta plots the estimated changes in the regression coefficients upon deleting each observation in turn. \n",
+    "\n",
+    "\n",
+    "Let's also check the deviance residuals. Residuals should be roughly symmetrically distributed about zero with a standard deviation of 1.\n",
+    "\n",
+    "Positive values correspond to individuals that “died too soon” compared to expected survival times.\n",
+    "Negative values correspond to individual that “lived too long”.\n",
+    "Very large or small values are outliers, which are poorly predicted by the model.\n",
+    "\n",
+    "\n",
+    "ggcoxdiagnostics(t_pet_rad, type = \"deviance\",\n",
+    "                 linear.predictions = FALSE, ggtheme = theme_bw())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "3b9a2bde",
+   "metadata": {
+    "papermill": {
+     "duration": 0.008251,
+     "end_time": "2023-02-05T06:46:22.099352",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:22.091101",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "> ## max combo test\n",
+    "\n",
+    "### Max combo test \n",
+    "\n",
+    "[maxcombo: The Group Sequential Max-Combo Test for Comparing Survival Curves](https://cran.r-project.org/web/packages/maxcombo/maxcombo.pdf) \n",
+    "\n",
+    "The max-combo test is faacea generalization of the weighted log-rank test, which itself is a generalization of the logrank test. \n",
+    "\n",
+    "The original paper: [Group sequential monitoring based on the maximum of weighted log-rank statistics with the Fleming-Harrington class of weights in oncology clinical trials - PubMed](https://pubmed.ncbi.nlm.nih.gov/32522077/) \n",
+    "\n",
+    "[A recent clinical trial that mentions maxcombo](https://clinicaltrials.gov/ProvidedDocs/27/NCT04421027/SAP_001.pdf_)\n",
+    "\n",
+    "\n",
+    "```{r}\n",
+    "max_combo <- function(risk, overall = TRUE){\n",
+    "  \n",
+    "  if (overall == TRUE){\n",
+    "  logrank.maxtest(\n",
+    "      time  = data$os_time,\n",
+    "      event = data$os_st,\n",
+    "      group = risk,\n",
+    "      rho   = c(0, 0, 1, 1),\n",
+    "      gamma = c(0, 1, 0, 1)\n",
+    "  )  \n",
+    "  } else {\n",
+    "    logrank.maxtest(\n",
+    "      time  = data$efs_time,\n",
+    "      event = data$efs_st,\n",
+    "      group = risk,\n",
+    "      rho   = c(0, 0, 1, 1),\n",
+    "      gamma = c(0, 1, 0, 1)\n",
+    "  )  \n",
+    "    \n",
+    "  }\n",
+    "}\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "583994e1",
+   "metadata": {
+    "papermill": {
+     "duration": 0.008244,
+     "end_time": "2023-02-05T06:46:22.115897",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:22.107653",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "> ## Weighted cox proportional hazard model"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "212ed62b",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2023-02-05T06:46:22.135261Z",
+     "iopub.status.busy": "2023-02-05T06:46:22.134102Z",
+     "iopub.status.idle": "2023-02-05T06:46:22.145725Z",
+     "shell.execute_reply": "2023-02-05T06:46:22.144499Z"
+    },
+    "papermill": {
+     "duration": 0.02356,
+     "end_time": "2023-02-05T06:46:22.147766",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:22.124206",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# # the package coxphw will not work ... because there is something wrong about specification of the time dependent covariate. Moreover, the weights can be adjusted in normal cox\n",
+    "# # \n",
+    "# # zero3$GVHD\n",
+    "# # zero2$GVHD  \n",
+    "# data$GVHD <- as.character(data$GVHD)\n",
+    "# data$GVHD[data$GVHD == \"Yes\"] <- 1\n",
+    "# data$GVHD[data$GVHD == \"No\"] <- 0\n",
+    "\n",
+    "# # data$hundred <- as.Date(data$Date.of.Stem.Cell.Infusion.) + 100\n",
+    "\n",
+    "# # data$GVHD.D. <- ymd(data$Date.of.Stem.Cell.Infusion.) + data$GVHD.D.\n",
+    "# #data$gvhd_tdc <- ifelse(is.na(data$GVHD.D.), data$hundred, data$GVHD.D.)\n",
+    "\n",
+    "# # data$gvhd_tdc <- data$hundred\n",
+    "# # \n",
+    "# # data$gvhd_tdc[!is.na(data$GVHD.D.)] <- data$GVHD.D.[!is.na(data$GVHD.D.)]\n",
+    "# # \n",
+    "# # data$gvhd_tdc <- as.Date(data$gvhd_tdc)\n",
+    "\n",
+    "# data$GVHD.D.[is.na(data$GVHD.D.)] <- 100\n",
+    "\n",
+    "# n_data <- data %>% dplyr::select(\"Recipient.s.MRN.\",\"GVHD\",\"GVHD.D.\", \"rec_gender\")\n",
+    "\n",
+    "# colnames(n_data) <- c(\"id\", \"status\", \"time\", \"gender\")\n",
+    "\n",
+    "\n",
+    "# long_data <- gather(data, key = week, value = level, CSA.mean.level.1: CSA3)\n",
+    "\n",
+    "# colnames(long_data)[1] <- \"id\"\n",
+    "\n",
+    "# long_data$week <- car::recode(long_data$week, \"'CSA.mean.level.1' = 7; 'CSA.2' = 14; 'CSA3' = 21 \")\n",
+    "\n",
+    "# # long_data$weight <- rep(1, nrow(long_data))\n",
+    "# # \n",
+    "# # long_data$weight[long_data$week == 7 & long_data$GVHD.D. <= 10 | (long_data$week == 14 & long_data$GVHD.D. <= 18 & long_data$GVHD.D. > 10) | (long_data$week == 21 & long_data$GVHD.D. <= 25 & long_data$GVHD.D. > 18)] <- 700/18\n",
+    "# # \n",
+    "# # long_data$weight[long_data$weight == 1.000] <- 300/(357-18)\n",
+    "# # \n",
+    "# library(lubridate)\n",
+    "\n",
+    "# long_data$level[long_data$level == 0] <- NA\n",
+    "# # according to the vignette, missing values will be carried forward ... This is a huge problem \n",
+    "\n",
+    "# temp <- n_data # baseline\n",
+    "   \n",
+    "# pbc2 <- tmerge(temp, temp, id=id, death = event(time, status)) #set range\n",
+    "# pbc2 <- tmerge(pbc2, long_data, id=id, cyclo = tdc(week, level), options = list(na.rm=TRUE))\n",
+    "\n",
+    "\n",
+    "# pbc2$weight <- rep(1, nrow(pbc2))\n",
+    "\n",
+    "# see <- filter(pbc2, pbc2$time - pbc2$tstart < 8 & pbc2$time - pbc2$tstart > 0) \n",
+    "\n",
+    "# # I multiplied 343 ( actual number after removal of deletions ) by 0.7 .. I got 240\n",
+    "# # then I divided the 240 among the 13 observations that met the criteria \n",
+    "\n",
+    "# pbc2$weight[pbc2$time - pbc2$tstart < 8 & pbc2$time - pbc2$tstart > 0] <- 240/13\n",
+    "\n",
+    "# # here I divided the remaining 30%  (0.3*343) on the remaining observations  (343-13)\n",
+    "\n",
+    "# pbc2$weight[pbc2$weight == 1.00] <- 103/(343-13)\n",
+    "\n",
+    "# #sum(pbc2$weight)  # the sum should be 343, however it is here 380 because missing data are not yet deleted\n",
+    "\n",
+    "# # pbc2 <- pbc2[complete.cases(pbc2$cyclo),]\n",
+    "# # \n",
+    "# # sum(pbc2$weight)  # here it is after removal of cases\n",
+    "\n",
+    "# #pbc2 <- pbc2[pbc2$cyclo != 0, ]\n",
+    "\n",
+    "# fit1 <- coxph(Surv(time, status==1) ~ gender ,  temp)\n",
+    "\n",
+    "# fit2 <- coxph(Surv(tstart, tstop, death==1) ~ gender + cyclo, weights = weight,\n",
+    "#               pbc2)\n",
+    "\n",
+    "# fit3 <- coxph(Surv(tstart, tstop, death==1) ~ gender + log(cyclo), weights = weight,\n",
+    "#               pbc2)\n",
+    "# seee <- pbc2[pbc2$cyclo == 0, ]\n",
+    "# #rbind('baseline fit' = coef(fit1),\n",
+    "#  #     'time dependent' = coef(fit2))\n",
+    "\n",
+    "# coxtbl <- tidy(fit3, exponentiate = TRUE, conf.int = T)\n",
+    "\n",
+    "# coxtbl <- coxtbl %>% \n",
+    "#   dplyr::select(term, estimate, p.value, conf.low, conf.high)\n",
+    "\n",
+    "# names(coxtbl) <- c(\"Risk factor\", \"HR\",\"p_value\", \"Lower CI\", \"Higher CI\")\n",
+    "# rmdtbl(coxtbl)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4dead7a5",
+   "metadata": {
+    "papermill": {
+     "duration": 0.008175,
+     "end_time": "2023-02-05T06:46:22.164680",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:22.156505",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "# Model selection using AIC and BIC \n",
+    "\n",
+    "\n",
+    "I will perform backward elimination and I will consider removing some variables while checking AIC and BIC. \n",
+    "\n",
+    "\n",
+    "rmdtable( glance(t_pet_rad_efs) %>% \n",
+    "  dplyr::select(AIC, BIC))\n",
+    "\n",
+    "Let's compare after removing `age_category`\n",
+    "\n",
+    "t_pet_rad_efs_no_age <- coxph(Surv(efs_time,efs_st) ~ B.symptoms + early_advanced_stage + tt(tpet) + tt(trad), data=data,\n",
+    "             tt=function(x,t,...) (t>=x))\n",
+    "\n",
+    "rmdtable( glance(t_pet_rad_efs_no_age) %>% \n",
+    "  dplyr::select(AIC, BIC))\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "e814a2a4",
+   "metadata": {
+    "papermill": {
+     "duration": 0.00821,
+     "end_time": "2023-02-05T06:46:22.181118",
+     "exception": false,
+     "start_time": "2023-02-05T06:46:22.172908",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {
@@ -388,14 +1651,14 @@
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 7.103037,
-   "end_time": "2023-01-31T00:13:55.972931",
+   "duration": 6.177071,
+   "end_time": "2023-02-05T06:46:22.307171",
    "environment_variables": {},
    "exception": null,
    "input_path": "__notebook__.ipynb",
    "output_path": "__notebook__.ipynb",
    "parameters": {},
-   "start_time": "2023-01-31T00:13:48.869894",
+   "start_time": "2023-02-05T06:46:16.130100",
    "version": "2.4.0"
   }
  },
